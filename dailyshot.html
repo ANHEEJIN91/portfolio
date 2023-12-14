@@ -15,59 +15,80 @@
       font-size:16px;
       color:#333;
       line-height:1.2;
-    }
+    } 
     #wrap{
       overflow:hidden;
     }
+    .grid-container{
+      display:grid;
+      grid-template-columns: repeat(4,1fr);
+      gap:20px;
+    }    
+
+    h1{display:none;}
+
+    .header .img-box{
+      grid-column:2/4;
+    }   
     .header{
-      padding:20px;
-      width:100%;
-      position:fixed;
-      left:0;
-      top:0;
-      right:0;      
+      padding:20px 0;      
     }
     .header .container{
+      padding:0 20px;
       margin:0 auto;
       max-width:1280px;
-      text-align:center;
-    }
-    .header h1{
-      font-size:0;
-    }
-    .header .img-box02{
-      display:none;
-    }
-    .header .img-box img{
-      width:150px;
-      height:30px;
+      position:relative;
     }
     
-    .header .main-nav{
-      position:fixed;
-      right:20px;
-      top:50px;
+    .header .img-box02{
+      display:none;
+      width:33px;
+      height:33px;
     }
+    .header nav,.header .main-nav{      
+      background:rgba(0,0,0,0.5);
+      position:fixed;
+      left:0;
+      right:0;
+      top:0;
+      bottom:0;
+    }
+    .header .main-nav{
+      left:50%;
+    }
+    .header .main-nav li{
+      color:#fff;
+    }
+    
     .header .btn-nav-close{
       position:absolute;
-      right:20px;
-      top:20px;
+      right:0;
+      top:0;
     }
+    .header .btn-nav-close span{
+      display:block;
+      width:22px;
+      height:2px;
+      background:#000;
+      border-radius:30px;
+      text-indent:-99999px;
+      margin-bottom:5px;
+    }
+    
     .header .sub-nav{
       display:none;
     }
 
     .header input{
       display:none;
+      width:193px;
+      height:27px;
     }
     
     
     @media (min-width:1280px){
-      .header .container{       
-        left:0;
-        top:0;
-        
-      }
+     
+      
     }
 
   </style>
@@ -76,56 +97,69 @@
   <section id="wrap">
     <header class="header">
       <div class="container">
-        <h1>헤더</h1>
-        <div class="img-box"><a href="./dailyshot.html"><img src="./images/데일리샷/daily-logo.png" alt="로고"></a></div>
-        <nav>
-          <ul class="main-nav">
-            <li>
-              <a href="#">위스키</a>
-              <ul class="sub-nav">
-                <li><a href="#">싱글몰트</a></li>
-                <li><a href="#">블랜디드</a></li>
-                <li><a href="#">아메리칸</a></li>
-                <li><a href="#">재패니즈</a></li>
-              </ul>
-            </li>
-            <li>
-              <a href="#">와인</a>
-              <ul class="sub-nav">
-                <li><a href="#">레드와인</a></li>
-                <li><a href="#">화이트와인</a></li>
-                <li><a href="#">스파클링</a></li>
-                <li><a href="#">디저트와인</a></li>
-              </ul>
-            </li>
-            <li>
-              <a href="#">우리술</a>
-              <ul class="sub-nav">
-                <li><a href="#">증류주</a></li>
-                <li><a href="#">발효주</a></li>
-                <li><a href="#">청주</a></li>
-                <li><a href="#">약주</a></li>
-              </ul>
-            </li>
-            <li>
-              <a href="#">리큐르</a>
-              <ul class="sub-nav">
-                <li><a href="#">허브</a></li>
-                <li><a href="#">과일</a></li>
-                <li><a href="#">커피</a></li>
-                <li><a href="#">아페리티포</a></li>
-              </ul>
-            </li>
-          </ul>
+        <div class="grid-container">
+          <h1>헤더</h1>
+          <div class="img-box"><a href="./dailyshot.html"><img src="./images/데일리샷/daily-logo.png" alt="로고"></a></div>
+          <nav>
+            <ul class="main-nav">
+              <li>
+                <h2><a href="#">위스키</a></h2>
+                <ul class="sub-nav">
+                  <li><a href="#">싱글몰트</a></li>
+                  <li><a href="#">블랜디드</a></li>
+                  <li><a href="#">아메리칸</a></li>
+                  <li><a href="#">재패니즈</a></li>
+                </ul>
+              </li>
+              <li>
+                <h2><a href="#">와인</a></h2>
+                <ul class="sub-nav">
+                  <li><a href="#">레드와인</a></li>
+                  <li><a href="#">화이트와인</a></li>
+                  <li><a href="#">스파클링</a></li>
+                  <li><a href="#">디저트와인</a></li>
+                </ul>
+              </li>
+              <li>
+                <h2><a href="#">우리술</a></h2>
+                <ul class="sub-nav">
+                  <li><a href="#">증류주</a></li>
+                  <li><a href="#">발효주</a></li>
+                  <li><a href="#">청주</a></li>
+                  <li><a href="#">약주</a></li>
+                </ul>
+              </li>
+              <li>
+                <h2><a href="#">리큐르</a></h2>
+                <ul class="sub-nav">
+                  <li><a href="#">허브</a></li>
+                  <li><a href="#">과일</a></li>
+                  <li><a href="#">커피</a></li>
+                  <li><a href="#">아페리티포</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
           <input type="search" placeholder="search">
-          <div class="img-box02">
-            <a href="#"><img src="./images/데일리샷/ico-shop.png" alt="장바구니"></a>
-            <a href="#"><img src="./images/데일리샷/ioc-user.png" alt="개정관리"></a>
-          </div>
-          <div class="btn-nav-close">
-            <div class="line">닫기</div>
-          </div>
-        </nav>
+            <div class="img-box02">
+              <ul>
+                <li>
+                  <a href="#"><img src="./images/데일리샷/ico-shop.png" alt="장바구니"></a>
+                </li>
+                <li>
+                  <a href="#"><img src="./images/데일리샷/ioc-user.png" alt="개정관리"></a>
+                </li>
+              </ul>
+            </div>
+            <div class="btn-nav-close">
+              <div class="line">
+                <span>1</span>
+                <span>2</span>
+                <span>3</span>
+              </div>
+            </div>
+        </div>
+
       </div>
     </header>
     <section class="sec sec01 main-banner"></section>
