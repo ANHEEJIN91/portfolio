@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="./favicon.png" type="image/x-icon">
+  <link rel="shortcut icon" href="./.png" type="image/x-icon">
   <link rel="stylesheet" href="./css/reset.css">
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
@@ -24,9 +24,7 @@
       grid-template-columns: repeat(4,1fr);
       gap:20px;
     }    
-
     h1{display:none;}
-
     .header .img-box{
       grid-column:2/4;
     }   
@@ -40,30 +38,65 @@
       position:relative;
     }
     
+    .header .main-nav{      
+      position:fixed;
+      left:0;
+      right:50%;
+      top:0;
+      bottom:0;
+      background:rgba(0,0,0,0.8);
+      transform:translateX(-100%);
+      transition:0.3s;
+    }
+    .header .main-nav.active{
+      transform:translateX(0);
+    }
+    .header .second-nav{
+      padding-left:40px;
+      padding-top:50px;
+      color:#fff;
+      text-transform:uppercase;
+    }
+    .header .second-nav>li>a{
+      font-weight:500;
+      font-size:1.3em;
+    }
+    .header .second-nav>li::after{
+      content:'';
+      display:block;
+      width:100px;
+      height:2px;
+      border-top:2px solid #9f9f9f;
+      margin-bottom:10px;
+    }
+    .header .sub-nav{
+      padding:10px 0 10px;
+      text-transform:capitalize;
+      opacity:0;     
+      transition:0.3s;
+    }
+    .header .sub-nav.active li{
+      opacity:1;
+    }
+    
+    .header .sub-nav>li{
+      padding-bottom:10px;
+    }
     .header .img-box02{
       display:none;
       width:33px;
       height:33px;
     }
-    .header nav,.header .main-nav{      
-      background:rgba(0,0,0,0.5);
-      position:fixed;
-      left:0;
-      right:0;
-      top:0;
-      bottom:0;
+    .header input{
+      display:none;
+      width:193px;
+      height:27px;
     }
-    .header .main-nav{
-      left:50%;
-    }
-    .header .main-nav li{
-      color:#fff;
-    }
-    
     .header .btn-nav-close{
       position:absolute;
       right:0;
       top:0;
+      padding-right:20px;
     }
     .header .btn-nav-close span{
       display:block;
@@ -75,19 +108,47 @@
       margin-bottom:5px;
     }
     
-    .header .sub-nav{
-      display:none;
+
+
+
+
+    .main-banner{
+      background:red;
+      height:300px;
+    }
+    .md-pick{
+      background:green;
+      height:300px;
+    }
+    .week{
+      background:blue;
+      height:300px;
+    }
+    .event{
+      background:cyan;
+      height:300px;
+    }
+    .ranking{
+      background:lightpink;
+      height:300px;
+    }
+    .korea{
+      background:lightsalmon;
+      height:300px;
+    }
+    .sns{
+      background:yellow;
+      height:300px;
+    }
+    .footer{
+      background:magenta;
+      height:300px;
     }
 
-    .header input{
-      display:none;
-      width:193px;
-      height:27px;
-    }
-    
-    
     @media (min-width:1280px){
-     
+      .header .btn-nav-close{
+        display:none;
+      }
       
     }
 
@@ -101,65 +162,66 @@
           <h1>헤더</h1>
           <div class="img-box"><a href="./dailyshot.html"><img src="./images/데일리샷/daily-logo.png" alt="로고"></a></div>
           <nav>
-            <ul class="main-nav">
-              <li>
-                <h2><a href="#">위스키</a></h2>
-                <ul class="sub-nav">
-                  <li><a href="#">싱글몰트</a></li>
-                  <li><a href="#">블랜디드</a></li>
-                  <li><a href="#">아메리칸</a></li>
-                  <li><a href="#">재패니즈</a></li>
-                </ul>
-              </li>
-              <li>
-                <h2><a href="#">와인</a></h2>
-                <ul class="sub-nav">
-                  <li><a href="#">레드와인</a></li>
-                  <li><a href="#">화이트와인</a></li>
-                  <li><a href="#">스파클링</a></li>
-                  <li><a href="#">디저트와인</a></li>
-                </ul>
-              </li>
-              <li>
-                <h2><a href="#">우리술</a></h2>
-                <ul class="sub-nav">
-                  <li><a href="#">증류주</a></li>
-                  <li><a href="#">발효주</a></li>
-                  <li><a href="#">청주</a></li>
-                  <li><a href="#">약주</a></li>
-                </ul>
-              </li>
-              <li>
-                <h2><a href="#">리큐르</a></h2>
-                <ul class="sub-nav">
-                  <li><a href="#">허브</a></li>
-                  <li><a href="#">과일</a></li>
-                  <li><a href="#">커피</a></li>
-                  <li><a href="#">아페리티포</a></li>
-                </ul>
-              </li>
-            </ul>
-          </nav>
-          <input type="search" placeholder="search">
-            <div class="img-box02">
-              <ul>
+            <div class="main-nav" id="main-nav">
+              <ul class="second-nav" id="second-nav">
                 <li>
-                  <a href="#"><img src="./images/데일리샷/ico-shop.png" alt="장바구니"></a>
+                  <a href="#" id="whiskey">whiskey</a>
+                  <ul class="sub-nav" id="sub-nav">
+                    <li><a href="#">single malt</a></li>
+                    <li><a href="#">blended</a></li>
+                    <li><a href="#">american</a></li>
+                    <li><a href="#">japanese</a></li>
+                  </ul>
                 </li>
                 <li>
-                  <a href="#"><img src="./images/데일리샷/ioc-user.png" alt="개정관리"></a>
+                  <a href="#">wine</a>
+                  <ul class="sub-nav">
+                    <li><a href="#">red wine</a></li>
+                    <li><a href="#">white wine</a></li>
+                    <li><a href="#">sparkling</a></li>
+                    <li><a href="#">desserrt wine</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">korea</a>
+                  <ul class="sub-nav">
+                    <li><a href="#">증류주</a></li>
+                    <li><a href="#">발효주</a></li>
+                    <li><a href="#">청주</a></li>
+                    <li><a href="#">약주</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">liqueur</a>
+                  <ul class="sub-nav">
+                    <li><a href="#">herb</a></li>
+                    <li><a href="#">fruit</a></li>
+                    <li><a href="#">coffee</a></li>
+                    <li><a href="#">aaperitifo</a></li>
+                  </ul>
                 </li>
               </ul>
             </div>
-            <div class="btn-nav-close">
-              <div class="line">
-                <span>1</span>
-                <span>2</span>
-                <span>3</span>
-              </div>
+          </nav>
+          <input type="search" placeholder="search">
+          <div class="img-box02">
+            <ul>
+              <li>
+                <a href="#"><img src="./images/데일리샷/ico-shop.png" alt="장바구니"></a>
+              </li>
+              <li>
+                <a href="#"><img src="./images/데일리샷/ioc-user.png" alt="개정관리"></a>
+              </li>
+            </ul>
+          </div>
+          <div class="btn-nav-close" id="btn-nav-close">
+            <div class="line">
+              <span>1</span>
+              <span>2</span>
+              <span>3</span>
             </div>
+          </div>
         </div>
-
       </div>
     </header>
     <section class="sec sec01 main-banner"></section>
@@ -172,9 +234,28 @@
     <footer class="footer"></footer>
   
   </section>
-  
+   
 
   <script>
+    let mainNav = document.getElementById('main-nav');
+    let btnNavClose = document.getElementById('btn-nav-close');
+    let secondNav = document.getElementById('sub-nav>li');
+    let secondNavA = document.getElementById('second-nav>a');
+
+
+    btnNavClose.onclick = function(){
+      mainNav.classList.toggle('active');
+    }
+    secondNavA.onclick = function(){
+      secondNav.classList.toggle('active');
+    }
+    
+
+    // // 네비게이션 항목 클릭 이벤트
+    // $('.second-nav>li').click(function(){
+    //   $('.second-nav>li>.sub-nav').hide(300);
+    // }) 
+    
 
   </script>
   <script src="./js/jquery.js"></script>
