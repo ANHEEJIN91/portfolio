@@ -47,6 +47,7 @@
       background:rgba(0,0,0,0.8);
       transform:translateX(-100%);
       transition:0.3s;
+      z-index:1000;
     }
     .header .main-nav.active{
       transform:translateX(0);
@@ -56,6 +57,7 @@
       padding-top:50px;
       color:#fff;
       text-transform:uppercase;
+      
     }
     .header .second-nav>li>a{
       font-weight:500;
@@ -69,34 +71,38 @@
       border-top:2px solid #9f9f9f;
       margin-bottom:10px;
     }
-    .header .sub-nav{
+    .header .sub-nav{     
       padding:10px 0 10px;
       text-transform:capitalize;
-      opacity:0;     
-      transition:0.3s;
+      display:none;
     }
-    .header .sub-nav.active li{
-      opacity:1;
-    }
-    
-    .header .sub-nav>li{
-      padding-bottom:10px;
-    }
+    /* .header .sub-nav.active{
+      display:block;
+    } */
     .header .img-box02{
       display:none;
-      width:33px;
-      height:33px;
+      width:35px;
+      grid-column:10/11;
     }
     .header input{
       display:none;
-      width:193px;
-      height:27px;
+      width:12em;
+      height:1.5em;
+      margin-top:14px;
+      grid-column:7/9;
+      border-radius:0.5em;
+      background-image:url('./images/데일리샷/daily-search.png');
+      background-repeat:no-repeat;
+      background-size:1.2em;
+      background-position:right;
+      cursor:pointer;
     }
     .header .btn-nav-close{
       position:absolute;
       right:0;
       top:0;
       padding-right:20px;
+      cursor:pointer;
     }
     .header .btn-nav-close span{
       display:block;
@@ -107,49 +113,69 @@
       text-indent:-99999px;
       margin-bottom:5px;
     }
+
+    .swiper {
+      width:100%;
+      height:100%;
+    }
+    .swiper-slide{
+      margin-bottom:100px;
+    }
+
+   
+
+
     
 
-
-
-
-    .main-banner{
-      background:red;
-      height:300px;
-    }
-    .md-pick{
-      background:green;
-      height:300px;
-    }
-    .week{
-      background:blue;
-      height:300px;
-    }
-    .event{
-      background:cyan;
-      height:300px;
-    }
-    .ranking{
-      background:lightpink;
-      height:300px;
-    }
-    .korea{
-      background:lightsalmon;
-      height:300px;
-    }
-    .sns{
-      background:yellow;
-      height:300px;
-    }
-    .footer{
-      background:magenta;
-      height:300px;
-    }
-
-    @media (min-width:1280px){
-      .header .btn-nav-close{
+    @media (min-width:768px){
+      .grid-container{
+        grid-template-columns: repeat(9,1fr);
+      }    
+      .header .img-box{
+        grid-column:1/3;
+        width:190px; 
+        height:40px;   
+      }   
+      .header .main-nav{
+        position:static;
+        background:transparent;
+        transform:translateX(0);
+      }
+      .header .second-nav{
+        display:flex;
+        padding:10px;
+        color:#000;
+      }
+      .header .second-nav>li{
+        font-size:0.9em;
+        margin-left:50px;
+      }
+      .header .second-nav>li::after,.header .btn-nav-close{
         display:none;
       }
+      .header input,.header .img-box02{
+        display:block;
+      }
+      .header .img-box02 li:last-child{
+        position:absolute; 
+        right:50px;
+        top:8px;
+        width:25px;
+      }
+      .header .btn-nav-close{
+        top:10px;
+      }
       
+      
+    }
+
+
+
+    @media (min-width:1280px){
+      .grid-container{
+        grid-template-columns: repeat(12,1fr);
+      }    
+         
     }
 
   </style>
@@ -164,8 +190,8 @@
           <nav>
             <div class="main-nav" id="main-nav">
               <ul class="second-nav" id="second-nav">
-                <li>
-                  <a href="#" id="whiskey">whiskey</a>
+                <li id="tmp">
+                  <a href="#">whiskey</a>
                   <ul class="sub-nav" id="sub-nav">
                     <li><a href="#">single malt</a></li>
                     <li><a href="#">blended</a></li>
@@ -203,60 +229,131 @@
               </ul>
             </div>
           </nav>
-          <input type="search" placeholder="search">
-          <div class="img-box02">
-            <ul>
-              <li>
-                <a href="#"><img src="./images/데일리샷/ico-shop.png" alt="장바구니"></a>
-              </li>
-              <li>
-                <a href="#"><img src="./images/데일리샷/ioc-user.png" alt="개정관리"></a>
-              </li>
-            </ul>
-          </div>
-          <div class="btn-nav-close" id="btn-nav-close">
-            <div class="line">
-              <span>1</span>
-              <span>2</span>
-              <span>3</span>
-            </div>
+        <input type="search" placeholder="search">
+        <div class="img-box02">
+          <ul>
+            <li>
+              <a href="#"><img src="./images/데일리샷/ico-shop.png" alt="장바구니"></a>
+            </li>
+            <li>
+              <a href="#"><img src="./images/데일리샷/ioc-user.png" alt="개정관리"></a>
+            </li>
+          </ul>
+        </div>
+        <div class="btn-nav-close" id="btn-nav-close">
+          <div class="line">
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
           </div>
         </div>
       </div>
     </header>
-    <section class="sec sec01 main-banner"></section>
-    <section class="sec sec02 md-pick"></section>
+    <section class="sec sec01 main-banner"> 
+      <!-- Slider main container -->
+    <div class="swiper">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide">
+          <a href="#">
+           <picture>
+            <source media="(min-width:768px)" srcset="./images/img-banner01.jpg">
+            <img src="./images/img-m-banner01.jpg" alt="베너1">
+           </picture>
+          </a></div>
+        <div class="swiper-slide">
+          <a href="#">
+            <picture>
+              <source media="(min-width:768px)" srcset="./images/img-banner02.jpg">
+              <img src="./images/img-m-banner02.jpg" alt="베너2">
+             </picture>
+        </a></div>
+        <div class="swiper-slide">
+          <a href="#">
+            <picture>
+              <source media="(min-width:768px)" srcset="./images/img-banner03.jpg">
+              <img src="./images/img-m-banner03.jpg" alt="베너3">
+             </picture>
+        </a></div>
+      </div>
+      <!-- If we need pagination -->
+      <div class="swiper-pagination"></div>
+
+      <!-- If we need scrollbar -->
+      <div class="swiper-scrollbar"></div>
+    </div>      
+    </section>
+    <section class="sec sec02 md-pick">
+      <h2>md-pick</h2>
+      <article class="art art01">
+        <h3>에즈라 브룩스</h3>
+        <p>싱글베럴 바이 데일리샷</p>
+        <p><span>10%</span> 114,600원</p>
+        <div class="img-box"><a href="#"><img src="./images/데일리샷/md-img01.jpg" alt="md이미지"></a></div>
+      </article class="art art02">
+      <article>
+        <h3>화요</h3>
+        <p>우리술 부문 판매량 3위</p>
+        <p><span>25%</span> 114,600원</p>
+        <div class="img-box"><a href="#"><img src="./images/데일리샷/md-img02.jpg" alt="md이미지"></a></div>
+      </article>
+      <article class="art art03">
+        <h3>러시안 잭 소비뇽블랑</h3>
+        <p>화이트와인 부문 판매량 2위</p>
+        <p><span>32%</span> 114,600원</p>
+        <div class="img-box"><a href="#"><img src="./images/데일리샷/md-img03.jpg" alt="md이미지"></a></div>
+      </article>
+      <article class="art art04">
+        <h3>러시안 잭 소비뇽블랑</h3>
+        <p>화이트와인 부문 판매량 2위</p>
+        <p><span>32%</span> 114,600원</p>
+        <div class="img-box"><a href="#"><img src="./images/데일리샷/md-img03.jpg" alt="md이미지"></a></div>
+      </article>
+    </section>
     <section class="sec sec03 week"></section>
     <section class="sec sec04 event"></section>
     <section class="sec sec05 ranking"></section>
     <section class="sec sec06 korea"></section>
     <section class="sec sec07 sns"></section>
     <footer class="footer"></footer>
-  
   </section>
    
 
   <script>
     let mainNav = document.getElementById('main-nav');
     let btnNavClose = document.getElementById('btn-nav-close');
-    let secondNav = document.getElementById('sub-nav>li');
-    let secondNavA = document.getElementById('second-nav>a');
+    
+    let tmpNav = document.getElementById('tmp');
+    let secondNav = document.getElementById('sub-nav');
 
 
     btnNavClose.onclick = function(){
       mainNav.classList.toggle('active');
     }
-    secondNavA.onclick = function(){
+    tmpNav.onclick = function(){
       secondNav.classList.toggle('active');
     }
     
+    const swiper = new Swiper('.swiper', {
+      // Optional parameters
+      direction: 'vertical',
+      loop: true,
 
-    // // 네비게이션 항목 클릭 이벤트
-    // $('.second-nav>li').click(function(){
-    //   $('.second-nav>li>.sub-nav').hide(300);
-    // }) 
+      // If we need pagination
+      pagination: {
+        el: '.swiper-pagination',
+      },
+
+      
+      // And if we need scrollbar
+      scrollbar: {
+        el: '.swiper-scrollbar',
+      },
+    });
     
-
+    
+    
   </script>
   <script src="./js/jquery.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
