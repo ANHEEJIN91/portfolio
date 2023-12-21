@@ -175,23 +175,45 @@
     }
     .week .container{
       display:grid;
-      grid-template-columns:repeat(3,1fr);
+      grid-template-columns:repeat(4,auto);
       margin:0 0 100px;      
     }
     .week .art{
-      display:grid;      
+      display:grid;
+      height:50%;
     }
     .week .art-text{
       grid-area:1/1/2/2;   
       z-index:2;
       font-weight:700;
+      font-size:10px;
+      line-height:1.5;
       color:#fff;
       background:rgba(0,0,0,0.5);
-      opacity:1;
+      opacity:0;
+      text-align:center;
       transition:0.3s;
     }
     .week .art-text:hover{
       opacity:1;
+    }
+    .week .art-text h3{
+      font-size:6px;
+    }
+    .week .art01{
+      grid-column:1/5;
+    }
+    .week .art01 .art-text{
+      font-size:20px;
+    }
+    .week .art01 h3{
+      font-size:11px;
+    }
+    .week .art01 span{
+      color:#ff4800;
+    }
+    .week .art05{
+      display:none;
     }
     .week .art a{
       display:flex;
@@ -204,8 +226,7 @@
       grid-area:1/1/2/2;  
       z-index:1;
     }
-   
-    .week h2{
+    .week .container h2{
       grid-column:1/-1;
       text-align:center;
       font-weight:700;
@@ -213,7 +234,67 @@
       text-transform:uppercase;
       margin-bottom:20px;
     }
-   
+    .event .container{
+      position:relative;
+    }
+    .event h2{
+      display:none;
+    }
+    .event h3{
+      position:absolute;
+      left:42%;
+      top:13%;
+      font-size:10px;
+      color:#fff;
+      z-index:2;
+    }
+    .event .img-box{
+      position:relative;
+      height:150px;
+      z-index:1;
+    }
+    .event-tit img{
+      width:100%;
+      height:150px;
+      object-fit:cover;
+      object-position:center;
+    }
+    .event-item{
+      width:320px;      
+      position: absolute;
+      left:50%;
+      top:40px;
+      transform: translateX(-50%);
+      z-index:2;
+    }
+    .event-item li{
+      margin-bottom:3px;
+      line-height:10px;
+    }
+    .event-txt01, .event-txt02{
+      position:absolute;
+      color:#fff;
+      z-index:2;
+      font-weight:700;
+      font-size:7px;
+    }
+    .event-txt01{
+      left:25px;
+      top:20px;
+    }
+    .event-txt01 li:first-child{
+      font-size:12px;
+    }
+    .event-txt02{
+      right:25px;
+      top:10px;
+    }
+    .event-img-box img{
+      width:100%;
+      height:150px;
+      object-fit:cover;
+      object-position:center;
+    }
 
     
     
@@ -277,21 +358,24 @@
       .week .art{
         font-size:1em;      
       }
-      .week .art:nth-of-type(1){
-        grid-column:1/7;
+      .week .art-text{
+        font-size:21px;
       }
-      .week .art:nth-of-type(2),
-      .week .art:nth-of-type(4){
+      .week .art-text h3{
+        font-size:11px;
+      }
+      .week .art01{
+       grid-area:2/1/4/7;
+      }
+      .week .art02,.week .art04{
         grid-column:7/10;
       }
-      .week .art:nth-of-type(3),
-      .week .art:nth-of-type(5){
-        grid-column:10/-1;
+      .week .art03,.week .art05{
+        grid-column:10/13;
       }
-      .week .art:nth-of-type(5){
+      .week .art05{
         display:grid;
       }
-      
       
     }
 
@@ -309,6 +393,18 @@
       }
       .week .art{
         font-size:1.6em;      
+      }
+      .week .art-text{
+        font-size:27px;
+      }
+      .week .art-text h3{
+        font-size:17px;
+      }
+      .week .art01 .art-text{
+        font-size:30px;
+      }
+      .week .art01 h3{
+        font-size:18px;
       }
       
     }
@@ -518,11 +614,71 @@
     <section class="sec sec04 event">
       <div class="container">
         <h2>이벤트</h2>
+        <div class="event-tit">
+          <h3>데일리 럭키바틀</h3>
+          <div class="img-box"><a href="#"><img src="./images/데일리샷/img-event01.jpg" alt="베너1"></a></div>
+        </div>
+        <div class="event-item">
+          <div class="event-txt01">
+            <ul>
+              <li>럭키바틀</li>
+              <li><span>매주 수요일 오픈되는 행운 추첨</span></li>
+              <li>한정판 프리미엄 위스키를 겟하고 싶으신 분들은<br>
+                  매주 수요일, 데일리샷을 접속해 주세요.<br>
+              </li>
+              <li>
+                  여러분의 인생 위스키가<br>
+                『럭키바틀』을 통해 찾아옵니다.
+              </li>
+            </ul>
+          </div>
+          <div class="event-txt02">
+          <ul>
+            <li>응모기간<br>
+                12월1일(금) ~ 12월8일(금) 오후 2시<br>
+            </li>
+            <li>당첨자 발표<br>
+                12월8일(금) 오후 3시<br>
+                *카카오톡 알림을 통해 결과가 발표됩니다.<br>
+            </li>
+            <li>당첨자 결제 기한<br>
+                12월 7일(목) 오전 11시<br>
+                *기한 초과 당첨이 즉시 취소됩니다.
+              </li>
+          </ul>
+          </div>
+          <div class="event-img-box">
+            <a href="#"><img src="./images/데일리샷/img-event02.jpg" alt="베너2"></a>
+          </div>
+        </div>
+      </div>
 
       </div>
     </section>
-    <section class="sec sec05 ranking"></section>
-    <section class="sec sec06 korea"></section>
+    <section class="sec sec05 ranking">
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam explicabo corrupti rerum suscipit hic commodi sint, velit saepe dolore culpa, quibusdam blanditiis numquam ad id maiores vitae, eius enim nulla.
+      Libero ipsum hic inventore dolorum obcaecati optio neque sequi ipsam esse possimus iste doloribus tempora voluptatum quis maiores veniam, voluptatibus aliquam perspiciatis necessitatibus sapiente! Sapiente nemo tenetur similique sunt quos?
+      Exercitationem dolorum reprehenderit hic autem quaerat excepturi rerum, saepe consequuntur dolore velit! Ad, modi nihil ex fugiat animi, repellendus at labore eaque qui iusto suscipit sit. Quidem dolores dolor beatae.
+      Voluptatem deleniti, nobis ex obcaecati consequatur voluptate quasi quisquam nulla esse placeat, aliquam laborum doloribus reiciendis maxime blanditiis quia deserunt illo ipsum ut harum similique. Dicta, rem voluptatum? Aspernatur, eligendi.
+      Voluptatum officia eos repellat aliquid totam quaerat nisi dolorum assumenda eum! Maiores, numquam. Neque quam officiis eius ullam incidunt vitae reiciendis animi adipisci optio, cum, maiores dolore iure aut dolorem.
+      Obcaecati id aut modi molestiae dolorem eum sequi nulla temporibus esse in beatae dolore cum optio error dicta ab deleniti pariatur placeat aspernatur perferendis deserunt quos, ipsum expedita quis! Eius.
+      Quis corrupti dolores consequuntur ipsam ipsa corporis fugiat laboriosam culpa officia illo exercitationem, numquam, eum ducimus iure similique veniam expedita est molestiae fuga labore nam magnam? Odit placeat delectus aut?
+      Quis perferendis explicabo nostrum dolorum corporis quia necessitatibus dolores repellat esse cum ducimus molestias voluptates sint doloribus molestiae earum deleniti, quidem, numquam ab nesciunt at, qui rerum facilis. Aut, suscipit.
+      Dolores quia iste voluptatum, repellat possimus blanditiis? Cupiditate aspernatur sit non quam impedit dolores ullam enim minima quisquam error dicta aut vitae optio obcaecati sequi, praesentium debitis repellat voluptatum molestiae.
+      Praesentium laboriosam modi optio quae quo esse! Nesciunt necessitatibus recusandae, earum non totam eaque molestiae et similique maxime? Tempore non sunt ipsum provident, cumque porro consectetur? Repudiandae rem inventore sit?
+    </section>
+    <section class="sec sec06 korea">
+      <lotem></lotem>
+      <lotem></lotem>
+      <lotem></lotem>
+      <lotem></lotem>
+      <lotem></lotem>
+      <lotem></lotem>
+      <lotem></lotem>
+      <lotem></lotem>
+      <lotem></lotem>
+      <lotem></lotem>
+    </section>
     <section class="sec sec07 sns"></section>
     <footer class="footer"></footer>
   </section>
