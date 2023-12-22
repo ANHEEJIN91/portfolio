@@ -165,8 +165,7 @@
     .sec .art:hover .art-text{
       opacity:1;
       /* z-index:3; */
-    }
-    
+    }    
     .md-pick .art-text h3,.md-pick .art-text p{
       padding-bottom:10px;
     }
@@ -252,6 +251,7 @@
       position:relative;
       height:150px;
       z-index:1;
+      margin-bottom:130px;
     }
     .event-tit img{
       width:100%;
@@ -260,10 +260,10 @@
       object-position:center;
     }
     .event-item{
-      width:320px;      
+      width:80%;      
       position: absolute;
       left:50%;
-      top:40px;
+      top:40%;
       transform: translateX(-50%);
       z-index:2;
     }
@@ -279,22 +279,177 @@
       font-size:7px;
     }
     .event-txt01{
-      left:25px;
-      top:20px;
+      left:10px;
+      top:38px;
     }
     .event-txt01 li:first-child{
       font-size:12px;
     }
     .event-txt02{
-      right:25px;
-      top:10px;
+      right:10px;
+      top:36px;
     }
     .event-img-box img{
       width:100%;
       height:150px;
       object-fit:cover;
-      object-position:center;
+      object-position:bottom;
     }
+    .ranking .container{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      column-gap:6px;
+      row-gap:20px;
+      margin:0 0px 100px;
+    }
+    .ranking .art{
+      display:grid;
+    }
+    .ranking h2{
+      grid-column:1/-1;
+      text-align:center;
+      font-weight:700;
+      font-size:27px;
+      text-transform:uppercase;
+    }
+    .ranking .art-text{   
+      grid-area:1/1/2/2;   
+      font-weight:700;
+      font-size:10px;
+      text-align:center;
+      color:#fff;
+      background:rgba(0,0,0,0.5);
+      opacity:0;
+      transition: 0.3s;
+      z-index:2;
+    }
+    .ranking .art a{
+      display:flex;
+      flex-flow:column nowrap;
+      justify-content:center;
+      align-items:center;
+      height:100%;
+    }
+    .ranking .img-box{
+      grid-area:1/1/2/2;  
+      z-index:1;
+    }
+    .ranking .art:hover .art-text{
+      opacity:1;
+      /* z-index:3; */
+    }    
+    .ranking .art-text span{
+      color:#f00;
+    }
+    .korea .container{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      column-gap:6px;
+      row-gap:20px;
+      margin:0 0px 100px;
+    }
+    .korea .art{
+      display:grid;
+    }
+    .korea h2{
+      grid-column:1/-1;
+      text-align:center;
+      font-weight:700;
+      font-size:27px;
+      text-transform:uppercase;
+    }
+    .korea .art-text{   
+      grid-area:1/1/2/2;   
+      font-weight:700;
+      font-size:10px;
+      text-align:center;
+      color:#fff;
+      background:rgba(0,0,0,0.5);
+      opacity:0;
+      transition: 0.3s;
+      z-index:2;
+    }
+    .korea .art a{
+      display:flex;
+      flex-flow:column nowrap;
+      justify-content:center;
+      align-items:center;
+      height:100%;
+    }
+    .korea .img-box{
+      grid-area:1/1/2/2;  
+      z-index:1;
+    }
+    .korea .art:hover .art-text{
+      opacity:1;
+      /* z-index:3; */
+    }    
+    .korea .art-text span{
+      color:#f00;
+    }
+    .sns h2{
+      font-weight:700;
+      font-size:30px;
+      margin-bottom:20px;
+      text-align:center;
+      text-transform:uppercase;
+    }
+    .sns .img-box{
+      display:grid;
+      grid-template-columns: repeat(3,auto);
+      column-gap:6px;
+      row-gap:6px;
+      margin-bottom:100px;
+    }
+    .sns li{
+      width:100%;
+    }
+    .sns li:nth-child(7),
+    .sns li:nth-child(8),
+    .sns li:nth-child(9),
+    .sns li:nth-child(10),
+    .sns li:nth-child(11),
+    .sns li:nth-child(12){
+      display:none;
+    }
+    .footer{
+      background:#9f9f9f;
+    }
+    .footer .container{
+      display:grid;
+      grid-template-columns: repeat(2,auto);
+      padding-top:56px;
+      padding-bottom:56px;
+      margin:0 20px;
+    }
+    .footer h2{
+      font-weight:700;
+      font-size:30px;
+      text-transform:capitalize;
+      margin-bottom:20px;
+      grid-column:1/3;
+    }
+    
+    .footer address{
+      line-height:25px;
+      margin-bottom:20px;
+      font-size:11px;
+    }
+    .footer span{
+      padding:0 10px 0;
+      font-size:11px;
+      border-right:1px solid #333;
+    }
+    .footer span:first-of-type{
+      padding-left:0;
+    }
+    .footer span:last-child{
+      border:none;
+    }
+    .footer-txt{
+      display:none;
+    }
+  
 
     
     
@@ -311,14 +466,6 @@
         width:190px; 
         height:40px;   
       }   
-      .md-pick .container{
-        grid-template-columns:repeat(3,1fr);
-        margin:0 0px 100px;
-      }
-      .md-pick .art:last-child{
-        display:none;
-      }
-      
       .header .main-nav{
         position:static;
         background:transparent;
@@ -348,6 +495,13 @@
       .header .btn-nav-close{
         top:10px;
       }
+      .md-pick .container{
+        grid-template-columns:repeat(3,1fr);
+        margin:0 0px 100px;
+      }
+      .md-pick .art:last-child{
+        display:none;
+      }
       .md-pick .art-text{
         font-size:17px;
       }
@@ -376,6 +530,55 @@
       .week .art05{
         display:grid;
       }
+      .event-item li{
+        line-height:15px;
+      }
+      .event h3{
+        font-size:18px;
+      }
+      .event-txt01, .event-txt02{
+        font-size:11px;
+      }
+      .event-txt01{
+        left:17%;
+        top:28px;
+      }
+      .event-txt02{
+        right:14%;
+        top:14px;
+      }
+      .ranking h2{
+        grid-column:1/-1;
+      }
+      .ranking .art-text{
+        font-size:21px;
+      }
+      .korea .art-text{
+        font-size:21px;
+      }
+      .sns .img-box{
+        grid-template-columns: repeat(6,auto);
+        column-gap:6px;
+        row-gap:6px;
+      }
+      .sns li:nth-child(7),
+      .sns li:nth-child(8),
+      .sns li:nth-child(9),
+      .sns li:nth-child(10),
+      .sns li:nth-child(11),
+      .sns li:nth-child(12){
+        display:grid;
+      }
+      .footer .container{
+        margin:0 100px;
+      }
+      .footer-txt{
+        display:grid;
+        font-size:28px;
+        line-height:36px;
+        text-align:right;
+      }
+
       
     }
 
@@ -406,7 +609,19 @@
       .week .art01 h3{
         font-size:18px;
       }
-      
+      .event-txt01{
+        left:30%;
+      }
+      .event-txt02{
+        right:28%;
+      }
+      .footer h2,.footer .address{
+        padding-left:250px;
+      }
+      .footer-txt{
+        text-align:left;
+        padding-right:100px;
+      }
     }
 
   </style>
@@ -656,31 +871,110 @@
       </div>
     </section>
     <section class="sec sec05 ranking">
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam explicabo corrupti rerum suscipit hic commodi sint, velit saepe dolore culpa, quibusdam blanditiis numquam ad id maiores vitae, eius enim nulla.
-      Libero ipsum hic inventore dolorum obcaecati optio neque sequi ipsam esse possimus iste doloribus tempora voluptatum quis maiores veniam, voluptatibus aliquam perspiciatis necessitatibus sapiente! Sapiente nemo tenetur similique sunt quos?
-      Exercitationem dolorum reprehenderit hic autem quaerat excepturi rerum, saepe consequuntur dolore velit! Ad, modi nihil ex fugiat animi, repellendus at labore eaque qui iusto suscipit sit. Quidem dolores dolor beatae.
-      Voluptatem deleniti, nobis ex obcaecati consequatur voluptate quasi quisquam nulla esse placeat, aliquam laborum doloribus reiciendis maxime blanditiis quia deserunt illo ipsum ut harum similique. Dicta, rem voluptatum? Aspernatur, eligendi.
-      Voluptatum officia eos repellat aliquid totam quaerat nisi dolorum assumenda eum! Maiores, numquam. Neque quam officiis eius ullam incidunt vitae reiciendis animi adipisci optio, cum, maiores dolore iure aut dolorem.
-      Obcaecati id aut modi molestiae dolorem eum sequi nulla temporibus esse in beatae dolore cum optio error dicta ab deleniti pariatur placeat aspernatur perferendis deserunt quos, ipsum expedita quis! Eius.
-      Quis corrupti dolores consequuntur ipsam ipsa corporis fugiat laboriosam culpa officia illo exercitationem, numquam, eum ducimus iure similique veniam expedita est molestiae fuga labore nam magnam? Odit placeat delectus aut?
-      Quis perferendis explicabo nostrum dolorum corporis quia necessitatibus dolores repellat esse cum ducimus molestias voluptates sint doloribus molestiae earum deleniti, quidem, numquam ab nesciunt at, qui rerum facilis. Aut, suscipit.
-      Dolores quia iste voluptatum, repellat possimus blanditiis? Cupiditate aspernatur sit non quam impedit dolores ullam enim minima quisquam error dicta aut vitae optio obcaecati sequi, praesentium debitis repellat voluptatum molestiae.
-      Praesentium laboriosam modi optio quae quo esse! Nesciunt necessitatibus recusandae, earum non totam eaque molestiae et similique maxime? Tempore non sunt ipsum provident, cumque porro consectetur? Repudiandae rem inventore sit?
+      <div class="container">
+        <h2>비비노 4.0 이상 와인 랭킹</h2>
+        <article class="art art01">
+          <div class="art-text">
+            <a href="#">
+              <h3>파트너 와인 부문 인기 3위</h3>
+              <p>조닌 카스텔 델<br>포지오 모스카토 다스티</p>
+              <p><span>17%</span>17,000원</p>
+            </a>
+          </div>
+          <div class="img-box"><a href="#"><img src="./images/데일리샷/rang-img01.jpg" alt="rang이미지"></a></div>
+        </article>
+        <article class="art art02">
+          <div class="art-text">
+            <a href="#">
+              <h3>전세계적으로 사랑받는<br>갓성비 와인</h3>
+              <p>무초 마스 레드</p>
+              <p><span>36%</span>18,300원</p>
+            </a>
+          </div>
+          <div class="img-box"><a href="#"><img src="./images/데일리샷/rang-img02.jpg" alt="rang이미지"></a></div>
+        </article>
+        <article class="art art03">
+          <div class="art-text">
+            <a href="#">
+              <h3>복숭아를 마시는 듯한<br>싱그러운 와인</h3>
+              <p>그로브 밀,소비뇽 블랑</p>
+              <p><span>30%</span>24,900원</p>
+            </a>
+          </div>
+          <div class="img-box"><a href="#"><img src="./images/데일리샷/rang-img03.jpg" alt="rang이미지"></a></div>
+        </article>
+      </div>
     </section>
     <section class="sec sec06 korea">
-      <lotem></lotem>
-      <lotem></lotem>
-      <lotem></lotem>
-      <lotem></lotem>
-      <lotem></lotem>
-      <lotem></lotem>
-      <lotem></lotem>
-      <lotem></lotem>
-      <lotem></lotem>
-      <lotem></lotem>
+      <div class="container">
+        <h2>코리아 에디션</h2>
+        <article class="art art01">
+          <div class="art-text">
+            <a href="#">
+              <h3>용의 영화로움과<br>행운을 담은 술</h3>
+              <p>화요53 750ml</p>
+              <p>79,000원</p>
+            </a>
+          </div>
+          <div class="img-box"><a href="#"><img src="./images/데일리샷/kor-img01.jpg" alt="kor이미지"></a></div>
+        </article>
+        <article class="art art02">
+          <div class="art-text">
+            <a href="#">
+              <h3>일취천일<br>비밀스러운 맛을 간직한 술</h3>
+              <p>배다리도가 주교주</p>
+              <p>19,000원</p>
+            </a>
+          </div>
+          <div class="img-box"><a href="#"><img src="./images/데일리샷/kor-img02.jpg" alt="kor이미지"></a></div>
+        </article>
+        <article class="art art03">
+          <div class="art-text">
+            <a href="#">
+              <h3>입안에서 퍼지는<br>오미자의 신비한 맛</h3>
+              <p>술샘 16%</p>
+              <p>12,400원</p>
+            </a>
+          </div>
+          <div class="img-box"><a href="#"><img src="./images/데일리샷/kor-img03.jpg" alt="kor이미지"></a></div>
+        </article>
+      </div>
     </section>
-    <section class="sec sec07 sns"></section>
-    <footer class="footer"></footer>
+    <section class="sec sec07 sns">
+      <div class="container">
+        <h2>instagram</h2>
+        <ul class="img-box">
+          <li><a href="#"><img src="./images/데일리샷/img-sns01.jpg" alt="sns01"></a></li>
+          <li><a href="#"><img src="./images/데일리샷/img-sns02.jpg" alt="sns02"></a></li>
+          <li><a href="#"><img src="./images/데일리샷/img-sns03.jpg" alt="sns03"></a></li>
+          <li><a href="#"><img src="./images/데일리샷/img-sns04.jpg" alt="sns04"></a></li>
+          <li><a href="#"><img src="./images/데일리샷/img-sns05.jpg" alt="sns05"></a></li>
+          <li><a href="#"><img src="./images/데일리샷/img-sns06.jpg" alt="sns06"></a></li>
+          <li><a href="#"><img src="./images/데일리샷/img-sns07.jpg" alt="sns07"></a></li>
+          <li><a href="#"><img src="./images/데일리샷/img-sns08.jpg" alt="sns08"></a></li>
+          <li><a href="#"><img src="./images/데일리샷/img-sns09.jpg" alt="sns09"></a></li>
+          <li><a href="#"><img src="./images/데일리샷/img-sns10.jpg" alt="sns10"></a></li>
+          <li><a href="#"><img src="./images/데일리샷/img-sns11.jpg" alt="sns11"></a></li>
+          <li><a href="#"><img src="./images/데일리샷/img-sns12.jpg" alt="sns12"></a></li>
+        </ul>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="container">
+        <h2>contact us</h2>
+        <address class="address">
+          주) 데일리샷 대표 김민욱<br>
+          서울시 강남구 언주로93길 27, 4,5,6층(역삼동)<br>
+          사업자 번호 278-86-00984<br>
+          문의 contact@dailyshot.co<br>
+          통신판매업 제 2023-서울강남-00412 호<br>
+          <span>서비스 이용약관</span><span><strong>개인정보 처리방침</strong></span><span>위치정보 처리약관</span>
+        </address>
+        <div class="footer-txt">
+          <p>지금 <strong>데일리샷</strong>에서<br>편리한 주류 쇼핑을<br>시작해 보세요!</p>
+        </div>
+      </div>
+    </footer>
   </section>
    
 
@@ -690,6 +984,7 @@
   <script>
     let mainNav = document.getElementById('main-nav');
     let btnNavClose = document.getElementById('btn-nav-close');
+    let body = document.querySelector('body');
     
     // let tmpNav = document.getElementsByClassName('second-nav-item');   
     // let secondNav = document.getElementsByClassName('sub-nav');
@@ -698,6 +993,21 @@
 
     btnNavClose.onclick = function(){
       mainNav.classList.toggle('active');
+      let str = mainNav.getAttribute('class');
+      if(str.indexOf('active') >= 0){
+        body.style.overflow='hidden';
+      }else{
+        body.style.overflow='auto';
+      };
+    }
+
+    window.onresize = function(){
+      if(window.innerWidth >=768){
+        body.style.overflow='auto';
+      }
+      if(window.innerWidth < 768){
+        mainNav.classList.remove('active');
+      }
     }
     // for(let idx=0;idx<=tmpNav.length-1;idx++){
     //   tmpNav[idx].onclick = function(){
