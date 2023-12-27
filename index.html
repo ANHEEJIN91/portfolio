@@ -4,70 +4,274 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/reset.css">
-  <link rel="stylesheet" href="./css/style.css">
-  <title>MY-PORTFOLIO</title>
+  <title>My portfolio</title>
   <style>
-     :root{
-      font-family:'Noto Sans KR';
+    @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700;800;900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&display=swap');
+    :root{
+      font-family:'Noto Sans KR',sans-serif;
       font-weight:500;
-      font-size:16px;
-      color:#333;
-      line-height:1.2;
-     }
-     .header{
-      background-image:url('./images/img-main-banner01.jpg');
-      background-repeat:no-repeat;
-      background-size:cover;
-      width:100%;
-      height:360px;
-     }
-     .header .container{
-      display:flex;
-      width:1280px;
-      margin:auto;
-      background:red;
-     }
-     .btn-nav{
-      display:flex;
-     }
-  
-   
+      font-size:14px;
+      line-height:1.5em;
+    }
+    #wrap{
+      overflow:hidden;
+    }
+    .header{
+      position:relative;
+    }
+    .header .container{
+      max-width:1280px;
+      margin:0 auto;
+      padding:0 20px;
+      display:grid;
+      grid-template-columns:auto;
+      justify-content:end;
+    }
+    .header h1{
+      position:absolute;
+      left:50%;
+      top:50%;
+      transform:translate(-50%,-50%);
+      font-family:'Inconsolata';
+      font-size:13px;
+      line-height:2.5em;
+      text-align:center;
+      color:#fff;
+      z-index:1;
+    }    
+    .header .img-box{
+      grid-area:1/1/2/2;
+      z-index:0;
+    }
+    .header nav{
+      position:fixed;
+      left:0;
+      right:0;
+      top:0;
+      bottom:0;
+      color:#fff;
+      z-index:2;
+      background:transparent;
+      background:rgba(0,0,0,0.5);
+      /* transform:translateX(100%); */
+      /* opacity:0; */
+      /* transition:0.3s; */
+      display:none;
+    }
+    .header nav.active{
+      /* opacity:1; */
+      /* transform:translateX(0); */
+    }
+    .header .main-nav{
+      position:absolute;
+      left:50%;
+      right:0;
+      top:0;
+      bottom:0;
+      font-family:'Inconsolata';
+      padding:90px 30px; 
+      background:#26507f;
+     
+    }
+    .header .main-nav li{
+      font-size:30px;
+      text-transform:capitalize;
+      margin-bottom:80px;
+    }
+    .header .btn-nav{
+      position:fixed;
+      right:20px;
+      top:20px;
+      width:2em;
+      border:none;
+      border-radius:0;
+      background:transparent;
+      fill:#fff;
+      cursor:pointer;
+      z-index:100;
+    }
+    .header .nav-close{
+      display:none;
+    }
+    .header .img-box{
+      margin-bottom:100px;
+    }
+    #about .container{
+      display:grid;
+      grid-template-columns:auto;
+      justify-items:center;
+    }
+    #about h2{
+      font-family:'Inconsolata';
+      font-weight:700;
+      font-size:40px;
+      margin-bottom:100px;
+      text-transform:uppercase;
+      text-align:center;
+      position:relative;
+    }
+    #about h2::after{
+      content:'';
+      display:block;
+      width:50px;
+      border:2px solid #666;
+      position:absolute;
+      left:50%;
+      top:330%;
+      transform:translate(-50%,-50%);
+    }
+    #about p{
+      padding:0 20px;
+      margin-bottom:40px;
+    }
+    #about .img-box img{
+      border-radius:50%;
+      width:250px;
+      height:250px;
+      margin-bottom:100px;
 
+    }
+
+    @media (min-width:1280px){
+      .header nav, .header .main-nav{
+        background:transparent;
+        opacity:1;
+      }
+      .header nav{
+        display:block;
+      }
+      .header .main-nav{
+        position:static;
+        display:grid;
+        grid-template-columns: repeat(4,auto);
+        justify-content:end;
+        font-size:24px;
+        column-gap:5em;
+        padding:20px;
+        font-family:'Inconsolata';
+        text-transform: uppercase;
+        background:rgba(0,0,0,0.5);
+        color:#ababab;
+      }
+      .header .main-nav li{
+        padding:0;
+        margin:0;
+      }
+      .header .btn-nav{
+        display:none;
+      }
+      .header h1{
+        left:50%;
+        top:50%;
+        transform:translate(-50%,-50%);
+        font-size:50px;
+      }    
+      #about .container{
+        grid-template-columns:auto auto;
+        justify-content:center;
+      }
+      #about h2{
+        grid-column:1/-1;
+      }
+      #about p{
+        font-size:20px;
+        line-height:1.5em;
+        margin-left:18%;
+        order:2;
+      }
+      #about .img-box img{
+        width:350px;
+        height:350px;
+        order:1;
+      }
+
+    }
   </style>
 </head>
 <body>
   <section id="wrap">
     <header class="header">
       <div class="container">
-        <h1>WELCOME TO MY PORTFOLIO</h1>
-        <p>Hi, my name is Hee jin</p>
-         <nav class="btn-nav">
-        <ul>
-          <li><a href="#">home</a></li>
-          <li><a href="#">about</a></li>
-          <li><a href="#">skills</a></li>
-          <li><a href="#">portfolio</a></li>
-        </ul>
-      </nav>
+        <h1>WELCOME TO MY PORTFOLIO<br>Hi, my name is Hee jin</h1>
+        <button class="btn-nav">
+          <span class="nav-open active"><svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+          <span class="nav-close"><svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 384 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg></span>
+        </button>
+        <nav>
+          <ul class="main-nav">
+            <li><a href="./index.html">home</a></li>
+            <li><a href="#about">about</a></li>
+            <li><a href="#skills">skills</a></li>
+            <li><a href="#portfolio">portfolio</a></li>
+          </ul>
+        </nav>        
       </div>
-     
-      <!-- <div class="img-box"><img src="./images/img-main-banner01.jpg" alt="메인이미지"></div> -->
+      <div class="img-box">
+        <img src="./images/img-main-banner01.jpg" alt="메인 이미지">
+      </div>
     </header>
-    <section class="sec sec01 about">
+    <section id="about">
       <div class="container">
-        <h2>ABOUT</h2>
+        <h2>about</h2>
+        <p>name : 안희진 creation date : 1991.07.04<br>
+          E-mail : gsy5195@naver.com<br>
+          Education : 2024.01 인천IT직업능력개발원<br>
+          (웹표준 반응형 웹디자인 & 퍼블리셔 5개월 과정수료)<br>
+          2011.02 포항 폴리텍 대학(전기계측제어과 졸업)<br>
+          2010.02 포항 해양 과학 고등학교(전자통신과 졸업)<br>
+          Introduction : 2023. 08월 ~ 2023.01월<br>
+          웹디자인&웹퍼블리싱 기초 과정 학습을 수료하였습니다.<br>
+          어려움도 있었지만, 새로운 것을 창조해 내는 일은<br> 
+          언제나 즐거운 요소였습니다.<br> 
+          첫발을 내딛은 만큼 지금보다
+          더욱 성장하는 퍼블리셔가 되고자 합니다.</p>
+          <div class="img-box"><img src="./images/img-profile.JPG" alt="프로필 이미지"></div>
+        </div>
+    </section>
+    <section id="skills">
+      <div class="container">
+        <h2>skills</h2>
+        <div class="item-box">
+          <ul class="img-box">
+            <li>
+              <img src="./images/ico-html.png" alt="html">
+              <p>html</p>
+            </li>
+            <li>
+              <img src="./images/ico-css.png" alt="css">
+              <p>css</p>
+            </li>
+            <li>
+              <img src="./images/ico-js.png" alt="js">
+              <p>js</p>
+            </li>
+            <li>
+              <img src="./images/ico-jQ.png" alt="jQ">
+              <p>jQ</p>
+            </li>
+            <li><img src="./images/ico-ps.png" alt="ps"></li>
+            <li><img src="./images/ico-ai.png" alt="ai"></li>
+          </ul>
+        </div>
+        <div class="back-img-box">
+          <img src="./images/img-main-banner02.jpg" alt="메인 이미지2">
+        </div>
       </div>
     </section>
-    <section class="sec sec02 skills">
-      <div class="container">
-        <h2>SKILLS</h2>
-      </div>
-    </section>
-    <section class="sec sec03 portfolio">
-      <div class="container">
-        <h2>PORTFILIO</h2>
-      </div>
+    <section id="portfolio">
+      <div class="container"></div>
     </section>
   </section>
+
+  <script src="./js/jquery.js"></script>
+  <script>
+    $('.btn-nav span').click(function(){
+      $('.btn-nav span').toggleClass('active');
+      $('nav').fadeToggle(300)
+      $('nav').toggleClass('active');
+      // $('.main-nav').toggleClass('active');
+    })
+  </script>
 </body>
 </html>
