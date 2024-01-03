@@ -5,9 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
   <link rel="stylesheet" href="./css/reset.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/> -->
   <title>My portfolio</title>
-  <style>
+  <style>     
+    @import url('https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700;800;900&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&display=swap');
     :root{
@@ -20,6 +21,39 @@
       overflow:hidden;
       /* height:100vh; */
     }
+    h2{
+      font-weight:700;
+      text-transform:uppercase;
+      text-align:center;
+    }
+    h2 span {
+      position: relative;
+      top: 20px;
+      display: inline-block;
+      animation: bounce .3s ease infinite alternate;
+      font-family: 'Titan One', cursive;
+      font-size: 30px;
+      color: #999;
+      text-shadow: 0 1px 0 #CCC,
+                  0 2px 0 #CCC,
+                  0 3px 0 #CCC,
+                  0 4px 0 #CCC,
+                  0 5px 0 #CCC,
+                  0 6px 0 transparent,
+                  0 7px 0 transparent,
+                  0 8px 0 transparent,
+                  0 9px 0 transparent,
+                  0 10px 10px rgba(0, 0, 0, .4);
+    }
+
+    h2 span:nth-child(2) { animation-delay: .1s; }
+    h2 span:nth-child(3) { animation-delay: .2s; }
+    h2 span:nth-child(4) { animation-delay: .3s; }
+    h2 span:nth-child(5) { animation-delay: .4s; }
+    h2 span:nth-child(6) { animation-delay: .5s; }
+    h2 span:nth-child(7) { animation-delay: .6s; }
+    h2 span:nth-child(8) { animation-delay: .7s; }
+   
     .header{
       position:relative;
     }
@@ -31,13 +65,13 @@
       grid-template-columns:auto;
       justify-content:end;
     }
-    .header h1{
+    .header .text{
       position:absolute;
       left:50%;
       top:50%;
       transform:translate(-50%,-50%);
-      font-family:'Inconsolata';
-      font-size:13px;
+      font-family:Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+      font-size: 1.1rem;
       line-height:2.5em;
       text-align:center;
       color:#fff;
@@ -61,11 +95,7 @@
       /* opacity:0; */
       /* transition:0.3s; */
       display:none;
-      z-index:100;
-    }
-    .header nav.active{
-      /* opacity:1; */
-      /* transform:translateX(0); */
+      z-index:10;
     }
     .header .main-nav{
       position:absolute;
@@ -73,7 +103,7 @@
       right:0;
       top:0;
       bottom:0;
-      font-family:'Inconsolata';
+      font-family:Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
       padding:90px 30px; 
       background:#26507f;
       
@@ -82,6 +112,44 @@
       font-size:30px;
       text-transform:capitalize;
       margin-bottom:80px;
+    }    
+    .header .main-nav li a {
+      /* margin: 0 30px; */
+      padding: 18px 0x;
+    }
+    .header .main-nav li a:after {
+      top: 100%;
+      opacity: 0;
+      -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+      -moz-transition: -moz-transform 0.3s, opacity 0.3s;
+      transition: transform 0.3s, opacity 0.3s;
+      -webkit-transform: translateY(-10px);
+      -moz-transform: translateY(-10px);
+      transform: translateY(-10px);
+    }
+    .header .main-nav li a span:last-child {    
+      z-index: 1;
+      display: block;
+      padding: 8px 0 0 0;
+      color: rgba(255, 255, 255,0.5);
+      text-shadow: none;
+      text-transform: none;
+      font-style: italic;
+      font-size: 0.75em;
+      font-family:Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+      opacity: 0;
+      -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+      -moz-transition: -moz-transform 0.3s, opacity 0.3s;
+      transition: transform 0.3s, opacity 0.3s;
+      -webkit-transform: translateY(-100%);
+      -moz-transform: translateY(-100%);
+      transform: translateY(-100%);
+    }
+    .header .main-nav li a:hover span:last-child,  .header .main-nav li a:focus span:last-child {
+      opacity: 1;
+      -webkit-transform: translateY(0%);
+      -moz-transform: translateY(0%);
+      transform: translateY(0%);
     }
     .header .btn-nav{
       position:fixed;
@@ -107,23 +175,12 @@
       justify-items:center;
     }
     #about h2{
-      font-family:'Inconsolata';
-      font-weight:700;
-      font-size:40px;
       margin-bottom:100px;
-      text-transform:uppercase;
-      text-align:center;
       position:relative;
     }
     #about h2::after{
-      content:'';
-      display:block;
-      width:50px;
-      border:2px solid #666;
-      position:absolute;
       left:50%;
       top:330%;
-      transform:translate(-50%,-50%);
     }
     #about p{
       padding:0 20px;
@@ -150,23 +207,12 @@
     }
     #skills h2{
       grid-area:1/1/2/5;
-      font-family:'Incovnsolata';
-      font-weight:700;
-      font-size:40px;
-      text-align:center;
-      text-transform:uppercase;
       padding:100px 0;
       z-index:2;
     }
     #skills h2::after{
-      content:'';
-      display:block;
-      width:50px;
-      border:2px solid #666;
-      position:absolute;
       left:50%;
       top:35%;
-      transform:translate(-50%,-50%);
       z-index:2;
     }   
     #skills .item-box{
@@ -193,58 +239,39 @@
       padding:30px 0 0 4px;
       text-align:center;
     }
-    #portfolio .container{
-      position:relative;
-    }
     #portfolio h2{
-      font-family:'Incovnsolata';
-      font-weight:700;
-      font-size:40px;
-      text-align:center;
-      text-transform:uppercase;
+      position:relative;
+      margin-bottom:50px;
     }
     #portfolio h2::after{
-      content:'';
       display:block;
-      width:50px;
-      border:2px solid #666;
-      position:absolute;
       left:50%;
-      top:15%;
-      transform:translate(-50%,-50%);
+      bottom:-50px;
+      transform:translate(-50%,0);
       z-index:2;
      }
-     #portfolio .swiper{
-      width:100%;
-      height:100%;
-     }
-      
-  
-
-    .swiper {
-      width: 100%;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      z-index:100;
+    .grid-container{
+      display:grid;
+      grid-template-columns:auto;
+      justify-content:center;
+      margin:0 auto;
     }
-    .swiper-slide {
-      background-position: center;
-      background-size: cover;
-      width:330px;
-      height:330px;
+    .art{
+      cursor:pointer;
     }
-    .swiper-slide img {
-      display: block;
-      width: 100%;
+    .art:hover{
+      transform:scale(1.2) rotate(2deg);
+      transition:0.3s;
     }
-    .swiper-slide p{
-      font-family:'Incovnsolata';
-      font-weight:700;
+    .art p{
       text-align:center;
+      font-weight:700;
+      font-size:20px;
       text-transform:uppercase;
     }
-    
-    
+    .art03 p{
+      margin-bottom:100px;
+    }
     #art01,#art02{
       position:fixed;
       left:0;
@@ -255,34 +282,29 @@
       background:rgba(0,0,0,0.5);
       display:none;
     }
-    #art01 .img-box{
+    #art01 .img-box, #art02 .img-box{
       position:absolute;
       left:50%;
-      top:35%;
+      top:50%;
       transform:translate(-50%,-50%);
-      width:50%;
-      height:50%;
-    }
-    
+      width:80%;
+    }    
     #art02{
       display:none;
     }
-    #art02 .img-box{
-      position:absolute;
-      left:50%;
-      top:35%;
-      transform:translate(-50%,-50%);
-      width:50%;
-      height:50%;
-    }
+    
 
     @media (min-width:1280px){
+      .header .text{
+        font-size: 3.1rem;
+      }
       .header nav, .header .main-nav{
         background:transparent;
         opacity:1;
       }
       .header nav{
         display:block;
+        bottom:auto;
       }
       .header .main-nav{
         position:static;
@@ -290,9 +312,8 @@
         grid-template-columns: repeat(4,auto);
         justify-content:end;
         font-size:24px;
-        column-gap:5em;
-        padding:20px;
-        font-family:'Inconsolata';
+        column-gap:2em;
+        padding:20px 0 15px 0;
         text-transform: uppercase;
         background:rgba(0,0,0,0.5);
         color:#ababab;
@@ -348,28 +369,76 @@
       #skills .item-txt{
         padding-top:60px;
       }
-      .swiper-slide {
-        width:500px;
-        height:500px;
+      .grid-container{
+        grid-template-columns:auto auto auto;
+      }
+      .art .img-box img{
+        width:450px;
+        height:360px;
+      }
+      .art01 .img-box img{
+        width:500px;        
+      }
+      .art03 .img-box img{
+        width:400px;
       }
     }
+   
+    
+
+    @keyframes bounce {
+      100% {
+        top: -20px;
+        text-shadow: 0 1px 0 #CCC,
+                    0 2px 0 #CCC,
+                    0 3px 0 #CCC,
+                    0 4px 0 #CCC,
+                    0 5px 0 #CCC,
+                    0 6px 0 #CCC,
+                    0 7px 0 #CCC,
+                    0 8px 0 #CCC,
+                    0 9px 0 #CCC,
+                    0 50px 25px rgba(0, 0, 0, .2);
+      }
+    }
+        
   </style>
 </head>
 <body>
   <section id="wrap">
     <header class="header">
-      <div class="container">
-        <h1>WELCOME TO MY PORTFOLIO<br>Hi, my name is Hee jin</h1>
-        <button class="btn-nav">
-          <span class="nav-open active"><svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
-          <span class="nav-close"><svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 384 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg></span>
+      <div class="container" >
+        <span class="text"></span>
+        <button class="btn-nav" id="menu">
+          <span class="nav-open active"><svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512">!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.<path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+          <span class="nav-close"><svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 384 512">!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.<path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg></span>
         </button>
         <nav>
           <ul class="main-nav">
-            <li><a href="./index.html">home</a></li>
-            <li><a href="#about">about</a></li>
-            <li><a href="#skills">skills</a></li>
-            <li><a href="#portfolio">portfolio</a></li>
+            <li>
+              <a href="./index.html">
+                <span>home</span>
+                <span>Home description</span>
+              </a>
+            </li>
+            <li>
+              <a href="#about">
+                <span>about</span>
+                <span>About description</span>
+              </a>
+            </li>
+            <li>
+              <a href="#skills">
+                <span>skills</span>
+                <span>skills description</span>
+              </a>
+            </li>
+            <li>
+              <a href="#portfolio">
+                <span>portfolio</span>
+                <span>portfolio description</span>
+              </a>
+            </li>
           </ul>
         </nav>        
       </div>
@@ -379,7 +448,13 @@
     </header>
     <section id="about">
       <div class="container">
-        <h2>about</h2>
+        <h2>
+          <span>a</span>
+          <span>b</span>
+          <span>o</span>
+          <span>u</span>
+          <span>t</span>
+        </h2>
         <p>name : 안희진 1991.07.04<br>
           E-mail : gsy5195@naver.com<br>          
           Education : 2024.01 인천IT직업능력개발원<br>
@@ -396,7 +471,15 @@
     </section>
     <section id="skills">
       <div class="container">
-        <h2>skills</h2>
+        <h2>
+          <span>s</span>
+          <span>k</span>
+          <span>i</span>
+          <span>l</span>
+          <span>l</span>
+          <span>s</span>
+        </h2>
+        
         <div class="item-box">
           <ul class="img-box">
             <li>
@@ -433,24 +516,31 @@
     </section>
     <section id="portfolio">
       <div class="container">
-        <h2>portfolio</h2>
-       <!-- Swiper -->
-        <div class="swiper mySwiper">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide" id="card">
-              <img src="./images/card.png"/>
-              <p>card news</p>
-            </div>
-            <div class="swiper-slide">
-              <a href="./dailyshot.html"><img src="./images/desk.png"/></a>
-              <p>website 바로가기</p>
-            </div>
-            <div class="swiper-slide" id="banner">
-              <img src="./images/banner.png"/>
-              <p>banner</p>
-            </div>
-          </div>
-          <div class="swiper-pagination"></div>
+        <h2>
+          <span>p</span>
+          <span>o</span>
+          <span>r</span>
+          <span>t</span>
+          <span>f</span>
+          <span>o</span>
+          <span>l</span>
+          <span>i</span>
+          <span>o</span>
+        </h2>
+
+        <div class="grid-container">
+          <article class="art art01" id="card">
+            <div class="img-box"><img src="./images/card.png" alt="카드뉴스"></div>
+            <p>card news</p>
+          </article>
+          <article class="art art02">
+            <div class="img-box"><a href="./dailyshot.html"><img src="./images/desk.png" alt="웹사이트"></a></div>
+            <p>website 바로가기</p>
+          </article>
+          <article class="art art03" id="banner">
+            <div class="img-box"><img src="./images/banner.png" alt="베너이미지"></div>
+            <p>banner</p>
+          </article>
         </div>
       </div>
     </section>
@@ -462,7 +552,7 @@
         <div class="img-box"><img src="./images/banner1.jpg" alt="배너모음"></div>
       </article>
     </section>
-    
+   
   </section>
 
   <script src="./js/jquery.js"></script>
@@ -476,61 +566,62 @@
       // $('.main-nav').toggleClass('active');
     })
   
-    var swiper = new Swiper(".mySwiper", {
-      // loop: true,
-      effect: "coverflow",
-      grabCursor: true,
-      centeredSlides: true,
-      autoplay: true,
-      slidesPerView: "auto",
-      coverflowEffect: {
-        rotate: 360,
-        stretch: 0,
-        depth: 100,
-        modifier: 1,
-        slideShadows: true,
-      },
-      pagination: {
-        el: ".swiper-pagination",
-      },
-    });
+   
     
     
 
     $('#card').click(function(){
       $('#art01').css({
         display:'block',
-      })
-      $('#wrap').css({
-        height:'100vh',
-      })
+      })      
     })
     $('#art01').click(function(){
       $(this).css({
         display:'none',
-      })
-      $('#wrap').css({
-        height:'auto',
-      })
+      })     
     })
 
     $('#banner').click(function(){
       $('#art02').css({
         display:'block',
-      })
-      $('#wrap').css({
-        height:'100vh',
-      })
+      })     
     })
     $('#art02').click(function(){
       $(this).css({
         display:'none',
-      })
-      $('#wrap').css({
-        height:'auto',
-      })
+      })      
     })
 
+
+
+
+    const text1 = "WELCOME TO MY PORTFOLIO";
+    const text2 = "  Hi, my name is Hee jin";
+    const text = document.querySelector(".text");
+    // i변수는 현재 문자열을 타이핑 할 때 사용될 인덱스 값으로 초기화
+    let i = 0;
+
+    // setInterval함수로 100ms마다 호출 
+    function typing() {
+        if (i < text1.length) {
+          // i인덱스에 해당하는 문자를 가져옴
+            let txt = text1.charAt(i);
+            text.innerHTML += txt;
+        } else if (i === text1.length) {
+            text.innerHTML += "<br>";
+            text.innerHTML += "<span id='text-bg'></span>";
+        } else if (i - text1.length <= text2.length) {
+            let txt = text2.charAt(i - text1.length);
+            document.getElementById("text-bg").innerHTML += txt;
+        }
+        i += 1;
+
+        if (i > text1.length + text2.length) {
+            clearInterval(intervalId);
+        }
+    }
+
+    const intervalId = setInterval(typing, 100);
       
 
   </script>
