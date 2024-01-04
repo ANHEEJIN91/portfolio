@@ -11,6 +11,7 @@
 
   <title>편리한 주류 쇼핑몰, 데일리샷</title>
   <style>
+    @import url('https://fonts.googleapis.com/css?family=Righteous');
     @import url('https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&display=swap');
     :root{
       font-family:'Noto Sans KR';
@@ -19,6 +20,24 @@
       color:#333;
       line-height:1.2;
     } 
+    *, *:before, *:after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgb(255, 255, 255);
+    }
+    body:before {
+      content: '';
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 0;
+      height: 100%;
+    }
     #wrap{
       overflow:hidden;
     }
@@ -38,6 +57,7 @@
     }
     .header .img-box{
       grid-column:2/4;
+      animation: bounce 1s infinite;
     }   
     .header{
       padding:20px 0;      
@@ -66,13 +86,14 @@
       padding-left:40px;
       padding-top:50px;
       text-transform:uppercase;
-      font-family:'Rubik Doodle Shadow'
+      font-family:'Rubik Doodle Shadow';
+      
     }
     .header .second-nav>li>a{
       font-family:'Rubik Doodle Shadow';
       font-weight:700;
       font-size:1.3em;
-      color:#000;
+      color:#fff;
     }
     .header .second-nav>li::after{
       content:'';
@@ -88,6 +109,7 @@
       display:block;
       font-family:'Rubik Doodle Shadow';
       font-weight:700;
+      color:#fff;
     }
     .header .sub-nav.active{
       display:block;
@@ -147,8 +169,67 @@
     .md-pick .art{
       display:grid;
     }
-    .md-pick h2{    
-      color:#4b80d8;    
+    .md-pick h2,
+    .week h2,
+    .ranking h2,
+    .korea h2,
+    .sns h2{    
+      color:#4b80d8;  
+      display: inline-block;
+      color: white;
+      font-family: 'Righteous', serif;
+      font-size:3em; 
+      text-shadow: .03em .03em 0 hsla(230,40%,50%,1);
+      position: relative;  
+    }
+    .korea h2{
+      font-size:2.5em;
+    }
+    .sns h2{
+      display:grid;
+    }
+    .md-pick h2 span,
+    .week h2 span,
+    .ranking h2 span,
+    .korea h2 span,
+    .sns h2 span{
+      position: relative;
+    }
+    .md-pick h2 span::after,
+    .week h2 span::after,
+    .ranking h2 span::after,
+    .korea h2 span::after,
+    .sns h2 span::after{
+      content: attr(data-shadow);
+      position:absolute;
+      top: 0.06em; 
+      left:0.2em;
+      z-index: -1;
+      width:100%;
+      text-shadow: none;
+      background-image:
+        linear-gradient(
+          45deg,
+          transparent 45%,
+          rgb(0, 0, 0) 45%,
+          rgb(0, 0, 0) 55%,
+          transparent 0
+          );
+      background-size: .05em .05em;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    
+      animation: shad-anim 15s linear infinite;
+    }
+    .week h2:after,
+    .ranking h2::after{
+      top: .06em; left:0.3em;
+    }
+    .korea h2::after{
+      top: .06em; left:1em;
+    }
+    .sns h2::after{
+      top: .06em; left:1.1em;
     }
     .md-pick .art-text{   
       grid-area:1/1/2/2;   
@@ -236,6 +317,16 @@
     }
     .week .container h2{
       margin-bottom:20px;
+    }
+    .week .art img {
+      -webkit-filter: grayscale(0) blur(0);
+      filter: grayscale(0) blur(0);
+      -webkit-transition: .5s ease-in-out;
+      transition: .5s ease-in-out;
+    }
+    .week .art:hover img {
+      -webkit-filter: grayscale(100%) blur(3px);
+	    filter: grayscale(100%) blur(3px);
     }
     .event .container{
       position:relative;    
@@ -369,7 +460,7 @@
       align-items:center;
       height:100%;
     }
-    .korea span{
+    .korea .art span{
       color:#4b80d8;
     }
     .korea .img-box{
@@ -383,26 +474,25 @@
     .sns h2{     
       margin-bottom:20px;
       text-align:center;     
+    }    
+    .sns .swiper {
+      width: 100%;
+      height: 100%;
     }
-    .sns .img-box{
-      display:grid;
-      grid-template-columns: repeat(3,auto);
-      column-gap:6px;
-      row-gap:6px;
-      margin-bottom:100px;
+    .sns .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
-    .sns li{
-      width:100%;
+    .sns .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
-    .sns li:nth-child(7),
-    .sns li:nth-child(8),
-    .sns li:nth-child(9),
-    .sns li:nth-child(10),
-    .sns li:nth-child(11),
-    .sns li:nth-child(12){
-      display:none;
-    }
-    
     .footer{
       background:#9f9f9f;
     }
@@ -443,13 +533,55 @@
     .footer-txt{
       display:none;
     }
-  
 
-    
+
+
+
+
+    /* -=--------------------------------/ */
+    .sec02 .art{overflow: hidden;}
+
+    .sec02 .art .img-box{
+      transition:0.3s;
+      filter:grayscale(1)
+    }
+    .sec02 .art{
+      transition: 0.3s;
+    }
+    .sec02 .art:hover{
+      border:5px solid red;
+    }
+    .sec02 .art:hover .img-box{
+      transform: scale(1.1);
+      filter:grayscale(0)
+
+    }
+
+    .sec05 .art{overflow: hidden;}
+    .sec05 .art .art-text{
+      transform: translateY(100%);;
+      /* opacity:0 !important; */
+    }
+    .sec05 .art:hover .art-text {
+      /* opacity: 1 !important; */
+      transform: translate(0);;
+    }
     
     @media (min-width:500px){
       h2 {
         font-size: 35px;
+      }
+      .week h2{
+        font-size:3em;
+      }
+      .week h2:after{
+        left:1em;
+      }
+      .korea h2::after{
+        left:0.9em;
+      }
+      .sns h2::after{
+        left:1.8em;
       }
       .event-txt01, .event-txt02{
         font-size:9px;
@@ -490,6 +622,7 @@
         display:flex;
         padding:10px;
         color:#000;
+        width:35em;
       }
       .header .second-nav>li{
         font-size:0.9em;
@@ -498,8 +631,12 @@
       .header .second-nav>li::after,.header .btn-nav-close{
         display:none;
       }
+      .header .second-nav>li>a{
+        color:#000;;
+      }
       .header .sub-nav{
         display:none;
+        color:#000;
       }
       .header input,.header .img-box02{
         display:none;
@@ -523,6 +660,14 @@
       .md-pick .art-text{
         font-size:17px;
       }
+      .md-pick h2,
+      .week h2,
+      .ranking h2,
+      .korea h2,
+      .sns h2 {
+        font-size:4em; 
+      }
+     
       .week .container{
         grid-template-columns:repeat(12,1fr);
         gap:20px;
@@ -578,19 +723,7 @@
         font-size:40px;
         line-height:55px;
       }
-      .sns .img-box{
-        grid-template-columns: repeat(6,auto);
-        column-gap:6px;
-        row-gap:6px;
-      }
-      .sns li:nth-child(7),
-      .sns li:nth-child(8),
-      .sns li:nth-child(9),
-      .sns li:nth-child(10),
-      .sns li:nth-child(11),
-      .sns li:nth-child(12){
-        display:grid;
-      }
+      
       .footer .container{
         margin:0 100px;
       }
@@ -651,7 +784,7 @@
       .event-txt01 li:first-child{
         font-size:30px;
       }
-        .event-txt01, .event-txt02{
+      .event-txt01, .event-txt02{
         font-size:20px;
       }
       .event-img-box img{
@@ -662,6 +795,19 @@
         padding-right:100px;
       }
     }
+
+    @keyframes bounce {
+      0%{transform:translateY(0)}
+      25%{transform:translateY(-10px)}
+      50%{transform:translateY(0)}
+      75%{transform:translateY(-5px)}
+      100%{transform:translateY(0)}
+     }
+
+    @keyframes shad-anim {
+          0% {background-position: 0 0}
+          0% {background-position: 100% -100%}
+        }
 
   </style>
 </head>
@@ -696,10 +842,10 @@
                 <li class="second-nav-item">
                   <a href="#">korea</a>
                   <ul class="sub-nav">
-                    <li><a href="#">증류주</a></li>
-                    <li><a href="#">발효주</a></li>
-                    <li><a href="#">청주</a></li>
-                    <li><a href="#">약주</a></li>
+                    <li><a href="#">distill</a></li>
+                    <li><a href="#">ferment</a></li>
+                    <li><a href="#">cheongju</a></li>
+                    <li><a href="#">herbal</a></li>
                   </ul>
                 </li>
                 <li class="second-nav-item">
@@ -736,7 +882,7 @@
     </header>
     <section class="sec sec01 main-banner"> 
       <!-- Slider main container -->
-    <div class="swiper">
+    <div class="swiper main-banner-swiper">
       <!-- Additional required wrapper -->
       <div class="swiper-wrapper">
         <!-- Slides -->
@@ -768,7 +914,9 @@
     </section>
     <section class="sec sec02 md-pick">
       <div class="container">
-        <h2>md-pick</h2>
+        <h2>
+          <span data-shadow='md-pick'>md-pick</span>
+        </h2>
         <article class="art art01">
           <div class="art-text">
             <a href="#">
@@ -814,7 +962,9 @@
     </section>
     <section class="sec sec03 week">
       <div class="container">
-        <h2>Store Week BEST</h2>
+        <h2>
+          <span data-shadow='Store Week BEST'>Store Week BEST</span>          
+        </h2>
         <article class="art art01">
           <div class="art-text">
             <a href="#">
@@ -909,7 +1059,9 @@
     </section>
     <section class="sec sec05 ranking">
       <div class="container">
-        <h2>Vivino 4.0 Wine Ranking</h2>
+        <h2>
+          <span data-shadow='Vivino 4.0 Wine Ranking'>Vivino 4.0 Wine Ranking</span>
+        </h2>
         <article class="art art01">
           <div class="art-text">
             <a href="#">
@@ -944,7 +1096,9 @@
     </section>
     <section class="sec sec06 korea">
       <div class="container">
-        <h2>korea edition</h2>
+        <h2>
+          <span data-shadow='korea edition'>korea edition</span>
+        </h2>
         <article class="art art01">
           <div class="art-text">
             <a href="#">
@@ -979,21 +1133,25 @@
     </section>
     <section class="sec sec07 sns">
       <div class="container">
-        <h2>instagram</h2>
-        <ul class="img-box">
-          <li><a href="#"><img src="./images/데일리샷/img-sns01.jpg" alt="sns01"></a></li>
-          <li><a href="#"><img src="./images/데일리샷/img-sns02.jpg" alt="sns02"></a></li>
-          <li><a href="#"><img src="./images/데일리샷/img-sns03.jpg" alt="sns03"></a></li>
-          <li><a href="#"><img src="./images/데일리샷/img-sns04.jpg" alt="sns04"></a></li>
-          <li><a href="#"><img src="./images/데일리샷/img-sns05.jpg" alt="sns05"></a></li>
-          <li><a href="#"><img src="./images/데일리샷/img-sns06.jpg" alt="sns06"></a></li>
-          <li><a href="#"><img src="./images/데일리샷/img-sns07.jpg" alt="sns07"></a></li>
-          <li><a href="#"><img src="./images/데일리샷/img-sns08.jpg" alt="sns08"></a></li>
-          <li><a href="#"><img src="./images/데일리샷/img-sns09.jpg" alt="sns09"></a></li>
-          <li><a href="#"><img src="./images/데일리샷/img-sns10.jpg" alt="sns10"></a></li>
-          <li><a href="#"><img src="./images/데일리샷/img-sns11.jpg" alt="sns11"></a></li>
-          <li><a href="#"><img src="./images/데일리샷/img-sns12.jpg" alt="sns12"></a></li>
-        </ul>
+        <h2>
+          <span data-shadow='instagram'>instagram</span>
+        </h2>
+        <div class="swiper sns-swiper">
+          <ul class="img-box swiper-wrapper">
+            <li class="swiper-slide"><a href="#"><img src="./images/데일리샷/img-sns01.jpg" alt="sns01"></a></li>
+            <li class="swiper-slide"><a href="#"><img src="./images/데일리샷/img-sns02.jpg" alt="sns02"></a></li>
+            <li class="swiper-slide"><a href="#"><img src="./images/데일리샷/img-sns03.jpg" alt="sns03"></a></li>
+            <li class="swiper-slide"><a href="#"><img src="./images/데일리샷/img-sns04.jpg" alt="sns04"></a></li>
+            <li class="swiper-slide"><a href="#"><img src="./images/데일리샷/img-sns05.jpg" alt="sns05"></a></li>
+            <li class="swiper-slide"><a href="#"><img src="./images/데일리샷/img-sns06.jpg" alt="sns06"></a></li>
+            <li class="swiper-slide"><a href="#"><img src="./images/데일리샷/img-sns07.jpg" alt="sns07"></a></li>
+            <li class="swiper-slide"><a href="#"><img src="./images/데일리샷/img-sns08.jpg" alt="sns08"></a></li>
+            <li class="swiper-slide"><a href="#"><img src="./images/데일리샷/img-sns09.jpg" alt="sns09"></a></li>
+            <li class="swiper-slide"><a href="#"><img src="./images/데일리샷/img-sns10.jpg" alt="sns10"></a></li>
+            <li class="swiper-slide"><a href="#"><img src="./images/데일리샷/img-sns11.jpg" alt="sns11"></a></li>
+            <li class="swiper-slide"><a href="#"><img src="./images/데일리샷/img-sns12.jpg" alt="sns12"></a></li>
+          </ul>
+        </div>  
       </div>
     </section>
     <footer class="footer">
@@ -1056,12 +1214,23 @@
       $(this).children('.sub-nav').toggleClass('active')
     })
     
-    const swiper = new Swiper('.swiper', {
+    const swiper = new Swiper('.main-banner-swiper', {
       loop: true,
       autoplay:true,
     });
    
-    
+    var snsswiper = new Swiper(".sns-swiper", {
+      slidesPerView:5,
+      spaceBetween:1,
+      freeMode: true,
+      loop:true,
+      autoplay:{
+        delay:0,
+        disableOnInteraction:false,
+      },
+      speed:3000,
+      loopAdditionalSlides: 1,
+    });
   </script>
 </body>
 </html>
